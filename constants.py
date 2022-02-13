@@ -26,6 +26,8 @@ exchanges = ["CSE", "NYSE", "NASDAQ"]
 stocks = ["A", "B", "C", "D"]
 parties = ["HF", "R", "MF"]  # Hedge Fund, Retail, Mutual Fund
 
+directions = ["B", "S"]
+
 intern_error_rate = 0.4
 party_probs = {"HF": 0.2, "R": 0.35, "MF": 0.45}
 
