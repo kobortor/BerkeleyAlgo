@@ -21,11 +21,11 @@ def learn_trapezoid(xs, ys, yerrs):
     xs = np.array(xs)
     ys = np.array(ys)
     assert(len(xs) == len(ys))
-    mean = np.mean(ys)
-    x0 = [-75, 75, mean, mean, mean]
+    x0 = [-75, 75, -50, -5, -50]
 
     def helper(x):
         trap = Trapezoid(*x)
+
         errs = [(ys[i] - trap.calc(xs[i])) for i in range(len(xs))]
         retval = np.square(errs).sum()
 
@@ -34,4 +34,4 @@ def learn_trapezoid(xs, ys, yerrs):
         too_far_penalty += max(0, x[1] - 90)*100
         return retval + too_far_penalty
 
-    return Trapezoid(*scipy.optimize.minimize(helper, x0).x)
+    return Trapezoid(*scipy.optimize.minimize(helper, x0, tol=1e-10).x)

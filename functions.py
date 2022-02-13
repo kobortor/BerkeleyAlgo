@@ -19,6 +19,9 @@ def bin_helper(xs, ys, nbins: int = 10):
 
 
 def binned_plot(xs: pd.Series, ys: pd.Series, nbins: int = 10, ax = None):
+    xs = pd.Series(xs)
+    ys = pd.Series(ys)
+    
     if ax is None:
         ax = plt.gca()
 
